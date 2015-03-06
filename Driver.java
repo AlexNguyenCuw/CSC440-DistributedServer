@@ -8,9 +8,9 @@ public class Driver
 {
 	public static void main(String[] args) throws Exception
 	{
-		//Just added this line
 			ServerSocket ss = new ServerSocket(1234);
 			int count = 0;
+			
 			
 			while(true)
 			{
