@@ -52,7 +52,15 @@ public class ResponseThread extends Thread
 			{
 				if(cc != this.theClient && cc.hasByte(Integer.parseInt(whichByte)))
 				{
+					Driver.theNotBusyClients.remove(cc);
+					Driver.theBusyClients.add(cc);
 					//share the byte with this guy
+					cc.sendMessage(whichByte);
+					String response = cc.getMessage();
+					this.theClient.sendMessage(response);
+					Driver.theBusyClients.remove(cc);
+					Driver.theNotBusyClients.add(cc);
+					
 				}
 			}
 			
